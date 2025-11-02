@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍬 Sweet Shop Management System</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1 class="title">🍬 Sweet Shop Management</h1>
+                    <p class="subtitle">Manage your sweet inventory with ease</p>
+                </div>
+                <button id="addSweetBtn" class="btn btn-primary">
+                    <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    Add Sweet
+                </button>
+            </div>
+        </header>
+
+        <!-- Notification -->
+        <div id="notification" class="notification hidden"></div>
+
+        <!-- Add Sweet Form -->
+        <div id="addSweetForm" class="form-container hidden">
+            <div class="form-card">
+                <h2 class="form-title">Add New Sweet</h2>
+                <div class="form-grid">
+                    <input type="text" id="sweetName" class="form-input" placeholder="Sweet Name" required>
+                    <select id="sweetCategory" class="form-input">
+                        <option>Chocolate</option>
+                        <option>Candy</option>
+                        <option>Pastry</option>
+                        <option>Nut-Based</option>
+                        <option>Milk-Based</option>
+                        <option>Vegetable-Based</option>
+                    </select>
+                    <input type="number" id="sweetPrice" class="form-input" placeholder="Price (₹)" min="0" step="0.01" required>
+                    <input type="number" id="sweetQuantity" class="form-input" placeholder="Quantity" min="0" required>
+                </div>
+                <div class="form-actions">
+                    <button id="submitSweet" class="btn btn-success">Add Sweet</button>
+                    <button id="cancelAdd" class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search & Filters -->
+        <div class="filters-container">
+            <div class="filters-grid">
+                <div class="search-box">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search sweets..." class="search-input">
+                </div>
+                <select id="categoryFilter" class="filter-input">
+                    <option value="all">All Categories</option>
+                </select>
+                <input type="number" id="minPrice" class="filter-input" placeholder="Min Price" min="0">
+                <input type="number" id="maxPrice" class="filter-input" placeholder="Max Price" min="0">
+            </div>
+        </div>
+
+        <!-- Sweets Grid -->
+        <div id="sweetsGrid" class="sweets-grid"></div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state hidden">
+            <p class="empty-message">No sweets found matching your criteria</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/sweetShopUI.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
